@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SWAPI</title>
+  <style>
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    .ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .wrapper {
+      margin: 30px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+    }
+
+    .item {
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .item:hover {
+      color: rgb(98, 60, 133);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div>
+      <button class="button" id="peopleButton">People</button>
+      <ul class="ul" id="peopleList"></ul>
+    </div>
+
+    <div>
+      <button class="button" id="vehiclesButton">Vehicles</button>
+      <ul class="ul" id="vehiclesList"></ul>
+    </div>
+
+    <div>
+      <button class="button" id="planetsButton">Planets</button>
+      <ul class="ul" id="planetsList"></ul>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Детали</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="node_modules/axios/dist/axios.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="scripts/app1.js"></script>
+</body>
+
+</html>
