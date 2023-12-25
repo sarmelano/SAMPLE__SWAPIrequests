@@ -1,0 +1,144 @@
+@import './helper.scss';
+
+body {
+  background-image: url(../images/star.webp);
+  @include bc;
+}
+
+.wrapper {
+  margin: 30px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.info-block {
+  @include flex-center(column, space-between, center);
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--btn-bc);
+  color: var(--white-color);
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: var(--btn-hov);
+  }
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.7;
+
+  button {
+    background-color: var(--bc);
+    color: var(--white-color);
+    padding: 5px 10px;
+    margin: 0 5px;
+
+    &.active {
+      background-color: var(--white-color);
+      color: var(--black-color);
+    }
+
+    &:hover {
+      background-color: var(--bc-hov);
+    }
+  }
+}
+
+.page-button {
+  background-color: transparent;
+
+  &.disabled {
+    display: none;
+  }
+}
+
+.item {
+  cursor: pointer;
+  margin-bottom: 10px;
+  color: var(--white-color);
+
+  &:hover {
+    color: var(--i-hov);
+    text-decoration: underline;
+    font-weight: bold;
+  }
+}
+
+.load_wrapper {
+  display: inline-block;
+  position: relative;
+  filter: drop-shadow(0 0 1px var(--yellow-color));
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family: arial;
+  color: var(--yellow-color);
+  text-shadow: 1px 1px 1px var(--black-color);
+  animation: blink 1s ease infinite;
+}
+
+.load {
+  width: 85px;
+  height: 85px;
+  animation: flip 2s linear infinite;
+
+  path {
+    stroke: var(--black-color);
+    stroke-width: 30;
+    fill: transparent;
+    stroke-dasharray: 100px 5px;
+    animation: spin 1s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes spin {
+  0% {
+    stroke-dashoffset: 500;
+    opacity: .5;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(1080deg);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: .5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .5;
+  }
+}
